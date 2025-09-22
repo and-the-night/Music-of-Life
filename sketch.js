@@ -113,7 +113,6 @@ function setup() {
   const playBtn = createButton('Play');
   playBtn.mousePressed(() => {
     state = 'play';
-        console.log("play1");
   });
   
   const resetBtn = createButton('Reset');
@@ -157,7 +156,6 @@ function draw() {
   }
   
   if(state == 'play') {
-    console.log("play2");
     let next = make2DArray(cols, rows);
 
     // Compute next based on grid
