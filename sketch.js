@@ -1,51 +1,51 @@
 const sampler = new Tone.Sampler({
   "C1": "Notes/C1.wav",
-  "C#1": "Notes/C#1.wav",
+  "C#1": "Notes/Cs1.wav",
   "D1": "Notes/D1.wav",
-  "D#1": "Notes/D#1.wav",
+  "D#1": "Notes/Ds1.wav",
   "E1": "Notes/E1.wav",
   "F1": "Notes/F1.wav",
-  "F#1": "Notes/F#1.wav",
+  "F#1": "Notes/Fs1.wav",
   "G1": "Notes/G1.wav",
-  "G#1": "Notes/G#1.wav",
+  "G#1": "Notes/Gs1.wav",
   "A1": "Notes/A1.wav",
-  "A#1": "Notes/A#1.wav",
+  "A#1": "Notes/As1.wav",
   "B1": "Notes/B1.wav",
   "C2": "Notes/C2.wav",
-  "C#2": "Notes/C#2.wav",
+  "C#2": "Notes/Cs2.wav",
   "D2": "Notes/D2.wav",
-  "D#2": "Notes/D#2.wav",
+  "D#2": "Notes/Ds2.wav",
   "E2": "Notes/E2.wav",
   "F2": "Notes/F2.wav",
-  "F#2": "Notes/F#2.wav",
+  "F#2": "Notes/Fs2.wav",
   "G2": "Notes/G2.wav",
-  "G#2": "Notes/G#2.wav",
+  "G#2": "Notes/Gs2.wav",
   "A2": "Notes/A2.wav",
-  "A#2": "Notes/A#2.wav",
+  "A#2": "Notes/As2.wav",
   "B2": "Notes/B2.wav",
   "C3": "Notes/C3.wav",
-  "C#3": "Notes/C#3.wav",
+  "C#3": "Notes/Cs3.wav",
   "D3": "Notes/D3.wav",
-  "D#3": "Notes/D#3.wav",
+  "D#3": "Notes/Ds3.wav",
   "E3": "Notes/E3.wav",
   "F3": "Notes/F3.wav",
-  "F#3": "Notes/F#3.wav",
+  "F#3": "Notes/Fs3.wav",
   "G3": "Notes/G3.wav",
-  "G#3": "Notes/G#3.wav",
+  "G#3": "Notes/Gs3.wav",
   "A3": "Notes/A3.wav",
-  "A#3": "Notes/A#3.wav",
+  "A#3": "Notes/As3.wav",
   "B3": "Notes/B3.wav",
   "C4": "Notes/C4.wav",
-  "C#4": "Notes/C#4.wav",
+  "C#4": "Notes/Cs4.wav",
   "D4": "Notes/D4.wav",
-  "D#4": "Notes/D#4.wav",
+  "D#4": "Notes/Ds4.wav",
   "E4": "Notes/E4.wav",
   "F4": "Notes/F4.wav",
-  "F#4": "Notes/F#4.wav",
+  "F#4": "Notes/Fs4.wav",
   "G4": "Notes/G4.wav",
-  "G#4": "Notes/G#4.wav",
+  "G#4": "Notes/Gs4.wav",
   "A4": "Notes/A4.wav",
-  "A#4": "Notes/A#4.wav",
+  "A#4": "Notes/As4.wav",
   "B4": "Notes/B4.wav"
 }, () => {
   console.log("Sampler Loaded");
@@ -110,17 +110,16 @@ function setup() {
 
   grid = make2DArray(cols, rows);
   
-  const playBtn = createButton('Play');
-  playBtn.mousePressed(() => {
+  const playBtn = document.getElementById('play-btn');
+  playBtn.addEventListener('click', () => {
     state = 'play';
   });
   
-  const resetBtn = createButton('Reset');
-  resetBtn.mousePressed(() => {
+  const resetBtn = document.getElementById('mode-btn');
+  resetBtn.addEventListener('click', () => {
     state = 'setup';
     grid = make2DArray(cols, rows);
   });
-
 }
 
 function draw() {
@@ -142,7 +141,6 @@ function draw() {
         setTimeout(() => {
           sampler.triggerRelease()
         }, 200);
-        // WebMidi.outputs[0].channels[1].playNote(cell.note);
       } else {
         fill(0);
       }
@@ -215,13 +213,12 @@ function mousePressed() {
 }
 
 function convertToNote(num) {
-  let oct = Math.floor(num / 12) % 4 +2;
+  let oct = Math.floor(num / 12) % 4 + 1;
   let noteNum = num % 12;
-  
-  // if (oct > 7) oct -= 7;
-  
-  
-  return notesLibrary[noteNum] + oct;
+
+  note = notesLibrary[noteNum] + oct;
+
+  return note;
 }
 
 function convertToHue(num) {

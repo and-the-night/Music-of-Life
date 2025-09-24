@@ -6,10 +6,22 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.9/Tone.js"></script>
 
     <link rel="stylesheet" type="text/css" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fredericka+the+Great&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Funnel+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+
+
     <meta charset="utf-8" />
 
   </head>
   <body>
+    <div class="title-wrapper">
+      <h1>Music of Life</h1>
+      <p>"The Music of Life" reimagines the popular "Game of Life" in a musical context (read more about the "Game of Life" <a href="https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life" target="_blank">here</a>). This experiment assigns a note to each cell that plays if it's "alive" and silences if it's "dead". The grid moves in circle of fifths rightwards, and a reverse circle of fifths downwards (read more about the circle of fifths <a href="https://en.wikipedia.org/wiki/Circle_of_fifths" target="_blank">here</a>). This experiment exposes the mathematical relationships between different notes on the chromatic scale. To play - click on each cell to activate it, then press "Play" to run the app and listen how a simple shape can easily become a post-modern, Schoenberg-like composition. Click "Reset" to clear the grid.</p>
+      <div id="play-wrapper">
+        <button id="play-btn">►</button>
+        <button id="mode-btn">RESET</button>
+      </div>
+    </div>
     <script src="sketch.js"></script>
   </body>
 </html>
